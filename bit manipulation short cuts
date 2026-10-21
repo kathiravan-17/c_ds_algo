@@ -1,0 +1,22 @@
+#	Operation	C formula
+1	Set bit N	x \|= (1U << n)
+2	Clear bit N	x &= ~(1U << n)
+3	Toggle bit N	x ^= (1U << n)
+4	Check bit N	(x & (1U << n)) != 0
+5	Set bit range	x \|= RANGE_MASK(low, high)
+6	Clear bit range	x &= ~RANGE_MASK(low, high)
+7	Toggle bit range	x ^= RANGE_MASK(low, high)
+8	Check any bit in range	(x & RANGE_MASK(low, high)) != 0
+9	Check all bits in range	(x & mask) == mask
+10	Extract bit range	(x >> low) & FIELD_MASK(width)
+11	Insert bit range	(x & ~mask) \| ((value << low) & mask)
+12	Check odd/even	x & 1U
+13	Check power of two	x && !(x & (x - 1U))
+14	Clear lowest set bit	x & (x - 1U)
+15	Isolate lowest set bit	x & (0U - x)
+16	Set lowest zero bit	x \| (x + 1U)
+17	Count set bits	x &= (x - 1U) in loop
+18	Count trailing zeros	__builtin_ctz(x)
+19	Count leading zeros	__builtin_clz(x)
+20	Rotate left	(x << n) \| (x >> (32U - n))
+21	Rotate right	(x >> n) \| (x << (32U - n))
